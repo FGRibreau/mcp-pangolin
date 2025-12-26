@@ -103,7 +103,7 @@ impl PangolinClient {
         let json: serde_json::Value = if text.is_empty() {
             serde_json::json!({"status": "success"})
         } else {
-            serde_json::from_str(&text).unwrap_or_else(|_| serde_json::Value::String(text))
+            serde_json::from_str(&text).unwrap_or(serde_json::Value::String(text))
         };
 
         Ok(json)

@@ -10,6 +10,7 @@
 use std::collections::HashMap;
 
 mod test_helpers {
+    #[allow(unused_imports)]
     use super::*;
 
     /// Sample OpenAPI spec for testing
@@ -395,16 +396,6 @@ fn test_build_url_with_path_params() {
         url,
         "https://api.pangolin.example.com/v1/org/my-org/site/123"
     );
-}
-
-#[test]
-fn test_extract_path_params_from_template() {
-    let params = swagger::extract_path_params("/org/{orgId}/site/{siteId}/resource/{resourceId}");
-
-    assert_eq!(params.len(), 3);
-    assert!(params.contains(&"orgId".to_string()));
-    assert!(params.contains(&"siteId".to_string()));
-    assert!(params.contains(&"resourceId".to_string()));
 }
 
 #[test]

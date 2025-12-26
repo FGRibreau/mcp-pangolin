@@ -192,6 +192,7 @@ pub struct SwaggerDocument {
 
 impl SwaggerSpec {
     /// Load from file
+    #[allow(dead_code)]
     pub fn from_file(path: &str) -> Result<Self> {
         let content = std::fs::read_to_string(path).context("Failed to read swagger file")?;
         Self::from_json(&content)
@@ -205,11 +206,6 @@ impl SwaggerSpec {
         }
         // Otherwise try direct parsing
         serde_json::from_str(json).context("Failed to parse swagger JSON")
-    }
-
-    /// Get the base URL from servers
-    pub fn get_base_url(&self) -> Option<String> {
-        self.servers.first().map(|s| s.url.clone())
     }
 
     /// Extract all endpoints from the specification
@@ -281,7 +277,7 @@ impl SwaggerSpec {
         let request_body = operation
             .request_body
             .as_ref()
-            .and_then(|rb| extract_request_body_schema(rb));
+            .and_then(extract_request_body_schema);
 
         Some(PangolinEndpoint {
             name,
@@ -301,8 +297,7 @@ fn generate_tool_name(path: &str, method: HttpMethod) -> String {
     // Remove leading slash and replace special chars
     let clean_path = path
         .trim_start_matches('/')
-        .replace('/', "_")
-        .replace('-', "_");
+        .replace(['/', '-'], "_");
 
     // Replace path parameters like {orgId} with their names
     let param_re = Regex::new(r"\{([^}]+)\}").unwrap();
@@ -440,7 +435,8 @@ fn convert_schema_property(name: &str, prop: &SchemaProperty) -> PropertySchema 
 }
 
 /// Extract path parameters from a path template
-pub fn extract_path_params(path: &str) -> Vec<String> {
+#[allow(dead_code)]
+fn extract_path_params(path: &str) -> Vec<String> {
     let re = Regex::new(r"\{([^}]+)\}").unwrap();
     re.captures_iter(path)
         .map(|cap| cap[1].to_string())

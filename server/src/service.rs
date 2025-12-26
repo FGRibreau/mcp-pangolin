@@ -65,11 +65,6 @@ impl PangolinService {
         })
     }
 
-    /// Check if read-only mode is enabled
-    pub fn is_read_only(&self) -> bool {
-        self.read_only
-    }
-
     /// Get available endpoints (filtered by read-only mode if enabled)
     pub fn get_available_endpoints(&self) -> Vec<&PangolinEndpoint> {
         if self.read_only {
