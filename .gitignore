@@ -1,0 +1,17 @@
+# Rust build artifacts
+/target/
+**/target/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Generated files
+pangolin-api.json
+
+.env
+.envrc
+.claude

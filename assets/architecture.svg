@@ -1,0 +1,321 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="pangolinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#10B981"/>
+    </linearGradient>
+    <linearGradient id="claudeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D97757"/>
+      <stop offset="100%" style="stop-color:#E8956A"/>
+    </linearGradient>
+    <linearGradient id="serverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1"/>
+      <stop offset="100%" style="stop-color:#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="swaggerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#85EA2D"/>
+      <stop offset="100%" style="stop-color:#6DBF12"/>
+    </linearGradient>
+    <linearGradient id="lockGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B"/>
+      <stop offset="100%" style="stop-color:#FBBF24"/>
+    </linearGradient>
+
+    <!-- Glow filters -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Arrow markers -->
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10B981"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8B5CF6"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#E8956A"/>
+    </marker>
+    <marker id="arrowYellow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FBBF24"/>
+    </marker>
+
+    <!-- Animated paths -->
+    <path id="swaggerPath" d="M340 140 C280 140 250 100 195 100" fill="none"/>
+    <path id="apiCallPath" d="M215 200 C280 200 320 200 340 200" fill="none"/>
+    <path id="apiResponsePath" d="M340 230 C280 230 250 230 215 230" fill="none"/>
+    <path id="mcpRequestPath" d="M705 175 L545 175" fill="none"/>
+    <path id="mcpResponsePath" d="M545 205 L705 205" fill="none"/>
+  </defs>
+
+  <!-- Background with subtle gradient -->
+  <rect width="900" height="380" fill="#0F172A" rx="16"/>
+
+  <!-- Animated grid pattern -->
+  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#1E293B" stroke-width="0.5"/>
+  </pattern>
+  <rect width="900" height="380" fill="url(#grid)" rx="16" opacity="0.7"/>
+
+  <!-- Decorative corner accents -->
+  <path d="M0 30 L0 16 Q0 0 16 0 L30 0" fill="none" stroke="#10B981" stroke-width="2" opacity="0.3"/>
+  <path d="M900 30 L900 16 Q900 0 884 0 L870 0" fill="none" stroke="#10B981" stroke-width="2" opacity="0.3"/>
+  <path d="M0 350 L0 364 Q0 380 16 380 L30 380" fill="none" stroke="#10B981" stroke-width="2" opacity="0.3"/>
+  <path d="M900 350 L900 364 Q900 380 884 380 L870 380" fill="none" stroke="#10B981" stroke-width="2" opacity="0.3"/>
+
+  <!-- === TITLE === -->
+  <text x="450" y="38" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="1">
+    Pangolin MCP
+  </text>
+  <text x="450" y="56" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="11">
+    With read-only mode support
+  </text>
+
+  <!-- === PANGOLIN INSTANCE === -->
+  <g transform="translate(50, 120)">
+    <!-- Main card -->
+    <rect width="160" height="160" rx="16" fill="url(#pangolinGrad)" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.92;1;0.92" dur="4s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Pangolin shield/tunnel icon -->
+    <g transform="translate(40, 20)">
+      <!-- Shield outline -->
+      <path d="M40 5 L75 15 L75 45 Q75 65 40 75 Q5 65 5 45 L5 15 Z" fill="rgba(255,255,255,0.15)" stroke="white" stroke-width="2"/>
+      <!-- Tunnel lines -->
+      <path d="M25 30 L55 30" stroke="white" stroke-width="2" opacity="0.8">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite"/>
+      </path>
+      <path d="M20 42 L60 42" stroke="white" stroke-width="2" opacity="0.8">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+      </path>
+      <path d="M25 54 L55 54" stroke="white" stroke-width="2" opacity="0.8">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite" begin="0.6s"/>
+      </path>
+    </g>
+
+    <!-- Labels -->
+    <text x="80" y="110" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Pangolin</text>
+    <text x="80" y="128" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="system-ui, sans-serif" font-size="11">Reverse Proxy + IAM</text>
+
+    <!-- API badge -->
+    <g transform="translate(45, 138)">
+      <rect width="70" height="18" rx="9" fill="rgba(255,255,255,0.2)"/>
+      <text x="35" y="13" text-anchor="middle" fill="white" font-family="monospace" font-size="9" font-weight="600">REST API</text>
+    </g>
+  </g>
+
+  <!-- === SWAGGER SPEC (floating above) === -->
+  <g transform="translate(135, 75)">
+    <rect width="80" height="50" rx="8" fill="url(#swaggerGrad)" filter="url(#softGlow)">
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <!-- OpenAPI icon -->
+    <text x="40" y="22" text-anchor="middle" fill="#1a1a1a" font-family="monospace" font-size="10" font-weight="700">{...}</text>
+    <text x="40" y="38" text-anchor="middle" fill="#1a1a1a" font-family="system-ui, sans-serif" font-size="8" font-weight="600">OpenAPI</text>
+  </g>
+
+  <!-- === MCP SERVER (Central, larger) === -->
+  <g transform="translate(340, 95)">
+    <!-- Outer glow ring -->
+    <rect x="-8" y="-8" width="216" height="206" rx="24" fill="none" stroke="url(#serverGrad)" stroke-width="1" opacity="0.3">
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Main card -->
+    <rect width="200" height="190" rx="20" fill="url(#serverGrad)" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.95;1;0.95" dur="3s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Server rack visualization -->
+    <g transform="translate(50, 20)">
+      <g transform="translate(0, 56)">
+        <rect x="0" y="0" width="100" height="22" rx="4" fill="rgba(255,255,255,0.95)"/>
+        <circle cx="14" cy="11" r="5" fill="#F59E0B">
+          <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+        </circle>
+        <text x="30" y="15" fill="#6366F1" font-family="monospace" font-size="9" font-weight="600">AUTH CHECK</text>
+      </g>
+    </g>
+
+    <!-- Labels -->
+    <text x="100" y="125" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="18" font-weight="700">mcp-pangolin</text>
+    <text x="100" y="143" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="system-ui, sans-serif" font-size="11">MCP Server</text>
+
+    <!-- Read-only mode badge -->
+    <g transform="translate(30, 152)">
+      <rect width="140" height="24" rx="12" fill="rgba(245,158,11,0.3)" stroke="#F59E0B" stroke-width="1"/>
+      <!-- Lock icon -->
+      <g transform="translate(10, 5)">
+        <rect x="2" y="7" width="10" height="8" rx="2" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
+        <path d="M4 7 L4 4 Q7 1 10 4 L10 7" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
+      </g>
+      <text x="85" y="16" text-anchor="middle" fill="#F59E0B" font-family="monospace" font-size="10" font-weight="600">READ_ONLY Mode</text>
+    </g>
+  </g>
+
+  <!-- === CLAUDE === -->
+  <g transform="translate(690, 120)">
+    <!-- Main card -->
+    <rect width="160" height="160" rx="16" fill="url(#claudeGrad)" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.92;1;0.92" dur="3.5s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Claude sparkle icon -->
+    <g transform="translate(55, 25)">
+      <path d="M25 0 L29 20 L50 25 L29 30 L25 50 L21 30 L0 25 L21 20 Z" fill="white" opacity="0.95">
+        <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="12s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.95;0.6;0.95" dur="2.5s" repeatCount="indefinite"/>
+      </path>
+      <!-- Inner sparkle -->
+      <circle cx="25" cy="25" r="8" fill="rgba(255,255,255,0.3)">
+        <animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- Labels -->
+    <text x="80" y="100" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Claude</text>
+    <text x="80" y="118" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="system-ui, sans-serif" font-size="11">AI Assistant</text>
+
+    <!-- Query examples -->
+    <g transform="translate(15, 130)">
+      <rect width="130" height="22" rx="6" fill="rgba(255,255,255,0.15)"/>
+      <text x="65" y="15" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="system-ui, sans-serif" font-size="9" font-style="italic">"List all sites"</text>
+    </g>
+  </g>
+
+  <!-- === CONNECTION: Swagger -> MCP Server === -->
+  <g>
+    <path d="M215 100 C260 100 290 130 340 140" fill="none" stroke="#85EA2D" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowYellow)">
+      <animate attributeName="stroke-dashoffset" values="0;-20" dur="1s" repeatCount="indefinite"/>
+    </path>
+    <!-- Animated spec packet -->
+    <circle r="5" fill="#85EA2D" filter="url(#softGlow)">
+      <animateMotion dur="2s" repeatCount="indefinite">
+        <mpath href="#swaggerPath"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="1;0.4;1" dur="0.6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <text x="268" y="108" text-anchor="middle" fill="#85EA2D" font-family="monospace" font-size="9" font-weight="600">Swagger Spec</text>
+
+  <!-- === CONNECTION: Pangolin <-> MCP Server === -->
+  <!-- API Request arrow -->
+  <g>
+    <path d="M215 200 C280 200 320 200 340 200" fill="none" stroke="#10B981" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+    <!-- Animated data packet -->
+    <circle r="5" fill="#10B981" filter="url(#softGlow)">
+      <animateMotion dur="1.5s" repeatCount="indefinite">
+        <mpath href="#apiCallPath"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="1;0.5;1" dur="0.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- API Response arrow -->
+  <g>
+    <path d="M340 230 C280 230 250 230 215 230" fill="none" stroke="#34D399" stroke-width="2.5" stroke-dasharray="4,3">
+      <animate attributeName="stroke-dashoffset" values="0;14" dur="0.8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <text x="275" y="190" text-anchor="middle" fill="#10B981" font-family="monospace" font-size="9" font-weight="600">Bearer Token</text>
+  <text x="275" y="248" text-anchor="middle" fill="#34D399" font-family="monospace" font-size="9" font-weight="600">JSON Response</text>
+
+  <!-- === CONNECTION: MCP Server <-> Claude === -->
+  <g>
+    <!-- Request arrow -->
+    <path d="M705 175 L545 175" fill="none" stroke="#E8956A" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+    <!-- Response arrow -->
+    <path d="M545 205 L705 205" fill="none" stroke="#A78BFA" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+
+    <!-- Animated packets -->
+    <circle r="5" fill="#E8956A" filter="url(#softGlow)">
+      <animateMotion dur="1.2s" repeatCount="indefinite">
+        <mpath href="#mcpRequestPath"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="1;0.4;1" dur="0.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="5" fill="#A78BFA" filter="url(#softGlow)">
+      <animateMotion dur="1.4s" repeatCount="indefinite" begin="0.3s">
+        <mpath href="#mcpResponsePath"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="1;0.4;1" dur="0.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- MCP Label with background -->
+  <g transform="translate(595, 145)">
+    <rect x="0" y="0" width="50" height="20" rx="10" fill="#1E293B" stroke="#E8956A" stroke-width="1"/>
+    <text x="25" y="14" text-anchor="middle" fill="#E8956A" font-family="monospace" font-size="10" font-weight="700">MCP</text>
+  </g>
+
+  <!-- === BOTTOM INFO BAR === -->
+  <g transform="translate(0, 310)">
+    <!-- Background bar -->
+    <rect x="50" y="0" width="800" height="55" rx="12" fill="#1E293B" opacity="0.7"/>
+
+    <!-- Tool count -->
+    <g transform="translate(80, 10)">
+      <rect width="110" height="35" rx="8" fill="rgba(99,102,241,0.2)" stroke="#6366F1" stroke-width="1"/>
+      <text x="55" y="15" text-anchor="middle" fill="#A78BFA" font-family="monospace" font-size="20" font-weight="700">50+</text>
+      <text x="55" y="29" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">API Tools</text>
+    </g>
+
+    <!-- Feature: Organizations -->
+    <g transform="translate(210, 10)">
+      <rect width="100" height="35" rx="8" fill="rgba(16,185,129,0.15)" stroke="#10B981" stroke-width="1"/>
+      <text x="50" y="16" text-anchor="middle" fill="#10B981" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Orgs</text>
+      <text x="50" y="29" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="8">Sites, Resources</text>
+    </g>
+
+    <!-- Feature: Users -->
+    <g transform="translate(330, 10)">
+      <rect width="100" height="35" rx="8" fill="rgba(53,191,192,0.15)" stroke="#35BFC0" stroke-width="1"/>
+      <text x="50" y="16" text-anchor="middle" fill="#35BFC0" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Users</text>
+      <text x="50" y="29" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="8">Roles, Clients</text>
+    </g>
+
+    <!-- Feature: Read-Only -->
+    <g transform="translate(450, 10)">
+      <rect width="120" height="35" rx="8" fill="rgba(245,158,11,0.15)" stroke="#F59E0B" stroke-width="1"/>
+      <!-- Lock icon -->
+      <g transform="translate(12, 8)">
+        <rect x="2" y="9" width="12" height="10" rx="2" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
+        <path d="M5 9 L5 5 Q8 1 11 5 L11 9" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
+      </g>
+      <text x="75" y="16" text-anchor="middle" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Read-Only</text>
+      <text x="75" y="29" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="8">Safe mode</text>
+    </g>
+
+    <!-- Feature: Bearer Auth -->
+    <g transform="translate(590, 10)">
+      <rect width="110" height="35" rx="8" fill="rgba(139,92,246,0.15)" stroke="#8B5CF6" stroke-width="1"/>
+      <!-- Key icon -->
+      <g transform="translate(12, 10)">
+        <circle cx="6" cy="8" r="5" fill="none" stroke="#8B5CF6" stroke-width="1.5"/>
+        <path d="M11 8 L20 8 M16 8 L16 12" stroke="#8B5CF6" stroke-width="1.5"/>
+      </g>
+      <text x="70" y="16" text-anchor="middle" fill="#8B5CF6" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Bearer Auth</text>
+      <text x="70" y="29" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="8">API_KEY</text>
+    </g>
+
+    <!-- Command example -->
+    <g transform="translate(720, 10)">
+      <rect width="110" height="35" rx="8" fill="rgba(255,255,255,0.05)" stroke="#475569" stroke-width="1"/>
+      <text x="55" y="16" text-anchor="middle" fill="#94A3B8" font-family="monospace" font-size="8">--read-only</text>
+      <text x="55" y="28" text-anchor="middle" fill="#64748B" font-family="monospace" font-size="7">GET only</text>
+    </g>
+  </g>
+</svg>

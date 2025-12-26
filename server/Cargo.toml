@@ -1,0 +1,54 @@
+[package]
+name = "mcp-pangolin"
+version = "0.1.0"
+edition = "2021"
+description = "MCP server for Pangolin Integration API - Manage your Pangolin resources with Claude"
+authors = ["Francois-Guillaume Ribreau <rust@fgribreau.com>"]
+license = "MIT"
+repository = "https://github.com/FGRibreau/mcp-pangolin"
+homepage = "https://github.com/FGRibreau/mcp-pangolin"
+documentation = "https://github.com/FGRibreau/mcp-pangolin#readme"
+readme = "../README.md"
+keywords = ["mcp", "pangolin", "vpn", "claude", "llm"]
+categories = ["command-line-utilities", "web-programming", "development-tools"]
+
+[[bin]]
+name = "mcp-pangolin"
+path = "src/main.rs"
+
+[dependencies]
+# MCP SDK
+rmcp = { version = "0.12", features = ["server", "transport-io"] }
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# HTTP client for Pangolin API calls
+reqwest = { version = "0.12", features = ["json"] }
+
+# Error handling
+anyhow = "1.0"
+thiserror = "2.0"
+
+# CLI arguments
+clap = { version = "4", features = ["derive", "env"] }
+
+# Logging (to stderr, not stdout!)
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# URL handling
+url = "2.5"
+
+# Schema generation
+schemars = "0.8"
+
+# Indexmap for ordered JSON
+indexmap = { version = "2.0", features = ["serde"] }
+
+# Regex for path parameter extraction
+regex = "1.11"
