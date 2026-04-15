@@ -15,7 +15,10 @@ pub enum HttpMethod {
 impl HttpMethod {
     /// Returns true if this method is considered a write operation
     pub fn is_write_operation(&self) -> bool {
-        matches!(self, HttpMethod::Post | HttpMethod::Put | HttpMethod::Delete | HttpMethod::Patch)
+        matches!(
+            self,
+            HttpMethod::Post | HttpMethod::Put | HttpMethod::Delete | HttpMethod::Patch
+        )
     }
 
     pub fn as_str(&self) -> &'static str {

@@ -295,9 +295,7 @@ impl SwaggerSpec {
 /// Generate a tool name from path and method
 fn generate_tool_name(path: &str, method: HttpMethod) -> String {
     // Remove leading slash and replace special chars
-    let clean_path = path
-        .trim_start_matches('/')
-        .replace(['/', '-'], "_");
+    let clean_path = path.trim_start_matches('/').replace(['/', '-'], "_");
 
     // Replace path parameters like {orgId} with their names
     let param_re = Regex::new(r"\{([^}]+)\}").unwrap();
@@ -405,7 +403,6 @@ fn extract_request_body_schema(request_body: &RequestBody) -> Option<RequestBody
     })
 }
 
-
 /// Convert OpenAPI SchemaProperty to our PropertySchema type
 fn convert_schema_property(name: &str, prop: &SchemaProperty) -> PropertySchema {
     let param_type = prop
@@ -414,9 +411,10 @@ fn convert_schema_property(name: &str, prop: &SchemaProperty) -> PropertySchema 
         .map(|t| ParameterType::from_openapi_type(t))
         .unwrap_or(ParameterType::String);
 
-    let items = prop.items.as_ref().map(|i| {
-        Box::new(convert_schema_property("item", i))
-    });
+    let items = prop
+        .items
+        .as_ref()
+        .map(|i| Box::new(convert_schema_property("item", i)));
 
     PropertySchema {
         name: name.to_string(),
@@ -472,10 +470,7 @@ mod tests {
             generate_tool_name("/site/{siteId}", HttpMethod::Delete),
             "delete_site_by_siteId"
         );
-        assert_eq!(
-            generate_tool_name("/", HttpMethod::Get),
-            "health_check"
-        );
+        assert_eq!(generate_tool_name("/", HttpMethod::Get), "health_check");
     }
 
     #[test]
@@ -495,6 +490,9 @@ mod tests {
             "/org/{orgId}/site/{siteId}",
             &params,
         );
-        assert_eq!(url, "https://api.pangolin.example.com/v1/org/org123/site/site456");
+        assert_eq!(
+            url,
+            "https://api.pangolin.example.com/v1/org/org123/site/site456"
+        );
     }
 }
