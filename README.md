@@ -15,20 +15,6 @@
 
 ---
 
-## Overview
-
-This project provides an MCP server that exposes all Pangolin API endpoints as tools, enabling AI assistants to manage your Pangolin infrastructure including organizations, sites, resources, roles, users, and more.
-
-## Features
-
-- Full coverage of Pangolin Integration API endpoints
-- **Read-only mode** via `PANGOLIN_READ_ONLY` environment variable
-- Bearer token authentication via `PANGOLIN_API_KEY`
-- Automatic tool generation from OpenAPI/Swagger specification
-- Support for path parameters, query parameters, and request bodies
-
----
-
 ## Sponsors
 
 <table>
@@ -56,8 +42,8 @@ This project provides an MCP server that exposes all Pangolin API endpoints as t
     </td>
     <td align="center" width="175">
       <a href="https://netir.fr/?mtm_source=github&mtm_medium=sponsor&mtm_campaign=netir&mtm_content=mcp-pangolin">
-        <img src="assets/sponsors/netir.svg" height="60" alt="NetIR"/><br/>
-        <b>NetIR</b>
+        <img src="assets/sponsors/netir.svg" height="60" alt="Netir"/><br/>
+        <b>Netir</b>
       </a><br/>
       <sub>Hire vetted French freelance self-hosting infra experts.</sub>
     </td>
@@ -88,6 +74,20 @@ This project provides an MCP server that exposes all Pangolin API endpoints as t
 </table>
 
 > **Interested in sponsoring?** [Get in touch](mailto:rust@fgribreau.com)
+
+## Overview
+
+This project provides an MCP server that exposes all Pangolin API endpoints as tools, enabling AI assistants to manage your Pangolin infrastructure including organizations, sites, resources, roles, users, and more.
+
+## Features
+
+- Full coverage of Pangolin Integration API endpoints
+- **Read-only mode** via `PANGOLIN_READ_ONLY` environment variable
+- Bearer token authentication via `PANGOLIN_API_KEY`
+- Automatic tool generation from OpenAPI/Swagger specification
+- Support for path parameters, query parameters, and request bodies
+
+---
 
 ## Quick Start
 
